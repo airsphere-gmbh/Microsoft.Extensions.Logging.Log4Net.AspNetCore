@@ -1,0 +1,27 @@
+name: .Push to GitHub registry
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Add private GitHub registry to NuGet
+        run: dotnet nuget add source "https://nuget.pkg.github.com/airsphere-gmbh/index.json" --name "AirSphere" --username airsphere-bot --password "${{ secrets.PACKAGES_WRITE }}" --store-password-in-clear-text
+
+      - name: Pack
+        run: dotnet pack --nologo -c Release -o ./output/ src/Microsoft.Extensions.Logging.Log4Net.AspNetCore/Microsoft.Extensions.Logging.Log4Net.AspNetCore.csproj
+
+      - name: Push generated packages to GitHub registry
+        shell: pwsh
+        run: Get-ChildItem ./output/*.nupkg -Recurse | %{ dotnet nuget push $_.FullName --source "AirSphere" --skip-duplicate --api-key ${{ secrets.PACKAGES_WRITE }} }
