@@ -21,20 +21,20 @@
 		<PackageReleaseNotes>
 			#133 - Compatible with .NET 8.0
 		</PackageReleaseNotes>
-		<PackageProjectUrl>https://github.com/huorswords/Microsoft.Extensions.Logging.Log4Net.AspNetCore</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/huorswords/Microsoft.Extensions.Logging.Log4Net.AspNetCore</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/airsphere-gmbh/Microsoft.Extensions.Logging.Log4Net.AspNetCore/</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/airsphere-gmbh/Microsoft.Extensions.Logging.Log4Net.AspNetCore/</RepositoryUrl>
 		<Version>8.0.0</Version>
 		<AssemblyVersion>8.0.0.0</AssemblyVersion>
 		<FileVersion>8.0.0.0</FileVersion>
-		<SignAssembly>true</SignAssembly>
+		<!--<SignAssembly>true</SignAssembly>-->
 		<!--<AssemblyOriginatorKeyFile Condition="'$(Configuration)' == 'Release'">Microsoft.Extensions.Logging.Log4Net.AspNetCoreKey.snk</AssemblyOriginatorKeyFile>-->
 		<PackageLicenseExpression></PackageLicenseExpression>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 	</PropertyGroup>
-	<PropertyGroup>
+	<!--<PropertyGroup>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	</PropertyGroup>
+	</PropertyGroup>-->
 	<ItemGroup>
 		<PackageReference Include="Microsoft.SourceLink.AzureRepos.Git" Version="8.0.0" PrivateAssets="All" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
