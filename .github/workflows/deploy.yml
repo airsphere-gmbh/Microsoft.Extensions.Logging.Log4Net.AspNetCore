@@ -24,4 +24,4 @@ jobs:
 
       - name: Push generated packages to GitHub registry
         shell: pwsh
-        run: Get-ChildItem ./output/*.nupkg -Recurse | %{ dotnet nuget push $_.FullName --source "AirSphere" --skip-duplicate }
+        run: Get-ChildItem ./output/*.nupkg -Recurse | %{ dotnet nuget push $_.FullName --source "AirSphere" --skip-duplicate --api-key "${{ secrets.PACKAGES_WRITE }}" }
